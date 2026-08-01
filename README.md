@@ -1,4 +1,4 @@
-# Reliable Agents With Ontology
+# Reliable Analysis With Ontology
 
 This project demonstrates the value of using an OWL/SKOS ontology to normalize real-world, messy datasets. It takes two massive datasets from the [Austin Open Data Portal](https://data.austintexas.gov/)—a highly fragmented Tree Inventory and a geographically linked 311 Service Requests database—and shows how semantic mapping drastically improves data insights.
 
