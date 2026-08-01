@@ -1,0 +1,51 @@
+TICKET_ID,DESCRIPTION,ISSUE_TYPE,REPORTED_SPECIES,NEAR_TREE_ID
+REQ-202401,Requesting trim for Red Oak blocking sidewalk.,Removal,Red Oak,TR-1044
+REQ-202402,Requesting trim for Elm blocking sidewalk.,Removal,Elm,TR-1042
+REQ-202403,Requesting trim for Cedar Elm blocking sidewalk.,Removal,Cedar Elm,TR-1028
+REQ-202404,Requesting trim for Oak blocking sidewalk.,Health Check,Oak,TR-1044
+REQ-202405,Requesting trim for Big Oak blocking sidewalk.,Health Check,Big Oak,TR-1090
+REQ-202406,Requesting trim for Oak Tree blocking sidewalk.,Pruning,Oak Tree,TR-1002
+REQ-202407,Requesting trim for Plane Tree blocking sidewalk.,Removal,Plane Tree,TR-1031
+REQ-202408,Requesting trim for Red Oak blocking sidewalk.,Health Check,Red Oak,TR-1072
+REQ-202409,Requesting trim for Oak blocking sidewalk.,Removal,Oak,TR-1061
+REQ-202410,Requesting trim for Elm blocking sidewalk.,Removal,Elm,TR-1003
+REQ-202411,Requesting trim for Scrub Oak blocking sidewalk.,Health Check,Scrub Oak,TR-1029
+REQ-202412,Requesting trim for Plane Tree blocking sidewalk.,Health Check,Plane Tree,TR-1032
+REQ-202413,Requesting trim for Plane Tree blocking sidewalk.,Removal,Plane Tree,TR-1075
+REQ-202414,Requesting trim for Big Oak blocking sidewalk.,Removal,Big Oak,TR-1071
+REQ-202415,Requesting trim for Big Oak blocking sidewalk.,Removal,Big Oak,TR-1096
+REQ-202416,Requesting trim for Scrub Oak blocking sidewalk.,Removal,Scrub Oak,TR-1090
+REQ-202417,Requesting trim for Big Oak blocking sidewalk.,Pruning,Big Oak,TR-1040
+REQ-202418,Requesting trim for Sycamore blocking sidewalk.,Removal,Sycamore,TR-1016
+REQ-202419,Requesting trim for Sycamore blocking sidewalk.,Pruning,Sycamore,TR-1016
+REQ-202420,Requesting trim for Elm Tree blocking sidewalk.,Removal,Elm Tree,TR-1028
+REQ-202421,Requesting trim for Big Oak blocking sidewalk.,Pruning,Big Oak,TR-1036
+REQ-202422,Requesting trim for Big Oak blocking sidewalk.,Pruning,Big Oak,TR-1025
+REQ-202423,Requesting trim for Elm blocking sidewalk.,Removal,Elm,TR-1047
+REQ-202424,Requesting trim for Oak Tree blocking sidewalk.,Removal,Oak Tree,TR-1002
+REQ-202425,Requesting trim for Red Oak blocking sidewalk.,Health Check,Red Oak,TR-1006
+REQ-202426,Requesting trim for Sycamore blocking sidewalk.,Health Check,Sycamore,TR-1038
+REQ-202427,Requesting trim for Scrub Oak blocking sidewalk.,Pruning,Scrub Oak,TR-1097
+REQ-202428,Requesting trim for Big Oak blocking sidewalk.,Removal,Big Oak,TR-1002
+REQ-202429,Requesting trim for Oak blocking sidewalk.,Removal,Oak,TR-1062
+REQ-202430,Requesting trim for Elm blocking sidewalk.,Removal,Elm,TR-1024
+REQ-202431,Requesting trim for Red Oak blocking sidewalk.,Pruning,Red Oak,TR-1062
+REQ-202432,Requesting trim for Scrub Oak blocking sidewalk.,Pruning,Scrub Oak,TR-1052
+REQ-202433,Requesting trim for Sycamore blocking sidewalk.,Pruning,Sycamore,TR-1074
+REQ-202434,Requesting trim for Big Oak blocking sidewalk.,Pruning,Big Oak,TR-1020
+REQ-202435,Requesting trim for Sycamore blocking sidewalk.,Health Check,Sycamore,TR-1032
+REQ-202436,Requesting trim for Cedar Elm blocking sidewalk.,Health Check,Cedar Elm,TR-1098
+REQ-202437,Requesting trim for Sycamore blocking sidewalk.,Health Check,Sycamore,TR-1077
+REQ-202438,Requesting trim for Oak blocking sidewalk.,Removal,Oak,TR-1049
+REQ-202439,Requesting trim for Oak blocking sidewalk.,Removal,Oak,TR-1039
+REQ-202440,Requesting trim for Live Oak blocking sidewalk.,Health Check,Live Oak,TR-1073
+REQ-202441,Requesting trim for Live Oak blocking sidewalk.,Pruning,Live Oak,TR-1095
+REQ-202442,Requesting trim for Elm blocking sidewalk.,Removal,Elm,TR-1081
+REQ-202443,Requesting trim for Sycamore blocking sidewalk.,Pruning,Sycamore,TR-1085
+REQ-202444,Requesting trim for Sycamore blocking sidewalk.,Health Check,Sycamore,TR-1031
+REQ-202445,Requesting trim for Red Oak blocking sidewalk.,Pruning,Red Oak,TR-1010
+REQ-202446,Requesting trim for Plane Tree blocking sidewalk.,Health Check,Plane Tree,TR-1053
+REQ-202447,Requesting trim for Plane Tree blocking sidewalk.,Removal,Plane Tree,TR-1077
+REQ-202448,Requesting trim for Elm blocking sidewalk.,Removal,Elm,TR-1005
+REQ-202449,Requesting trim for Cedar Elm blocking sidewalk.,Health Check,Cedar Elm,TR-1091
+REQ-202450,Requesting trim for Sycamore blocking sidewalk.,Health Check,Sycamore,TR-1059

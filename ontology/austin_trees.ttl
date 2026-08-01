@@ -1,0 +1,1136 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dwc:  <http://rs.tdwg.org/dwc/terms/> .
+@prefix atree: <http://austin.gov/ontology/trees#> .
+@prefix dc:   <http://purl.org/dc/elements/1.1/> .
+
+# =============================================================================
+# Austin Tree Species Ontology
+# Source: Austin Tree Inventory (data.austintexas.gov)
+# Purpose: Normalize fragmented SPECIES string variants to canonical
+#          scientific names, enabling consistent cross-dataset queries.
+# =============================================================================
+
+<http://austin.gov/ontology/trees>
+    rdf:type owl:Ontology ;
+    dc:title "Austin Urban Tree Species Ontology" ;
+    dc:description "Maps all observed common-name variants in the Austin Tree Inventory to canonical scientific names (DwC), enabling ontology-augmented querying across fragmented city datasets." ;
+    dc:creator "Austin SRE Data Pipeline" ;
+    owl:versionInfo "1.0.0" .
+
+# =============================================================================
+# GENUS-LEVEL CLASSES (parents for multi-species groups)
+# =============================================================================
+
+atree:Quercus
+    rdf:type owl:Class ;
+    skos:prefLabel "Oak (genus)"@en ;
+    dwc:scientificName "Quercus" ;
+    skos:altLabel "Oak"@en ;
+    skos:note "Catch-all for ambiguous 'Oak' references that cannot be resolved to species level."@en .
+
+atree:Celtis
+    rdf:type owl:Class ;
+    skos:prefLabel "Hackberry (genus)"@en ;
+    dwc:scientificName "Celtis" ;
+    skos:altLabel "Hackberry"@en .
+
+atree:Ulmus
+    rdf:type owl:Class ;
+    skos:prefLabel "Elm (genus)"@en ;
+    dwc:scientificName "Ulmus" ;
+    skos:altLabel "Elm"@en .
+
+# =============================================================================
+# QUERCUS (OAKS) — Species Level
+# =============================================================================
+
+atree:SouthernLiveOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Southern Live Oak"@en ;
+    dwc:scientificName "Quercus virginiana" ;
+    # Variants observed in Austin Tree Inventory (data.austintexas.gov)
+    skos:altLabel "Southern Live Oak"@en ;
+    skos:altLabel "Oak, Live (Southern)"@en ;
+    skos:altLabel "Oak, Texas Live (Escarpment)"@en ;
+    skos:altLabel "Escarpment Live Oak"@en ;
+    skos:altLabel "Live Oak"@en ;
+    skos:altLabel "Oak Tree"@en ;
+    skos:altLabel "Big Oak"@en ;
+    skos:altLabel "Scrub Oak"@en ;
+    skos:note "Most common urban tree in Austin. Multiple naming conventions used across departments."@en .
+
+atree:TexasRedOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Texas Red Oak"@en ;
+    dwc:scientificName "Quercus texana" ;
+    skos:altLabel "Texas Red Oak"@en ;
+    skos:altLabel "Oak, Texas Red"@en ;
+    skos:altLabel "Red Oak"@en ;
+    skos:note "Also listed as Quercus buckleyi in some taxonomies."@en .
+
+atree:ShumardOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Shumard Oak"@en ;
+    dwc:scientificName "Quercus shumardii" ;
+    skos:altLabel "Shumard Oak"@en ;
+    skos:altLabel "Shumard Red Oak"@en .
+
+atree:BurOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Bur Oak"@en ;
+    dwc:scientificName "Quercus macrocarpa" ;
+    skos:altLabel "Bur Oak"@en ;
+    skos:altLabel "Oak, Bur"@en ;
+    skos:altLabel "Mossycup Oak"@en .
+
+atree:ChinquapinOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Chinquapin Oak"@en ;
+    dwc:scientificName "Quercus muehlenbergii" ;
+    skos:altLabel "Chinquapin Oak"@en ;
+    skos:altLabel "Oak, Chinquapin"@en ;
+    skos:altLabel "Chinkapin Oak"@en .
+
+atree:PostOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Post Oak"@en ;
+    dwc:scientificName "Quercus stellata" ;
+    skos:altLabel "Post Oak"@en ;
+    skos:altLabel "Oak, Post"@en .
+
+atree:MexicanWhiteOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Mexican White Oak"@en ;
+    dwc:scientificName "Quercus polymorpha" ;
+    skos:altLabel "Mexican White Oak"@en ;
+    skos:altLabel "Oak, Mexican White (Netleaf)"@en ;
+    skos:altLabel "Netleaf Oak"@en .
+
+# =============================================================================
+# ULMUS (ELMS) — Species Level
+# =============================================================================
+
+atree:CedarElm
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Ulmus ;
+    skos:prefLabel "Cedar Elm"@en ;
+    dwc:scientificName "Ulmus crassifolia" ;
+    # KEY ONTOLOGY VALUE: Two naming conventions in inventory for same species
+    skos:altLabel "Cedar Elm"@en ;
+    skos:altLabel "Elm, Cedar"@en ;
+    skos:note "Austin Tree Inventory uses BOTH 'Cedar Elm' (3,979 rows) and 'Elm, Cedar' (4,830 rows) for the same species — a 55% undercount without ontology normalization."@en .
+
+atree:AmericanElm
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Ulmus ;
+    skos:prefLabel "American Elm"@en ;
+    dwc:scientificName "Ulmus americana" ;
+    skos:altLabel "American Elm"@en ;
+    skos:altLabel "Elm, American"@en .
+
+# =============================================================================
+# OTHER MAJOR AUSTIN SPECIES
+# =============================================================================
+
+atree:Pecan
+    rdf:type owl:Class ;
+    skos:prefLabel "Pecan"@en ;
+    dwc:scientificName "Carya illinoinensis" ;
+    skos:altLabel "Pecan"@en ;
+    skos:altLabel "Pecan Tree"@en ;
+    skos:note "Texas state tree. Third most common in Austin inventory."@en .
+
+atree:CrapeMyrtle
+    rdf:type owl:Class ;
+    skos:prefLabel "Crape Myrtle"@en ;
+    dwc:scientificName "Lagerstroemia indica" ;
+    # Two naming conventions in inventory
+    skos:altLabel "Crapemyrtle"@en ;
+    skos:altLabel "Crape Myrtle (including hybrids)"@en ;
+    skos:altLabel "Crape Myrtle"@en ;
+    skos:altLabel "Crepe Myrtle"@en ;
+    skos:note "Inventory uses both 'Crapemyrtle' (2,661) and 'Crape Myrtle (including hybrids)' (1,117)."@en .
+
+atree:AsheJuniper
+    rdf:type owl:Class ;
+    skos:prefLabel "Ashe Juniper"@en ;
+    dwc:scientificName "Juniperus ashei" ;
+    # Two naming conventions in inventory
+    skos:altLabel "Ashe Juniper"@en ;
+    skos:altLabel "Juniper, Ashe"@en ;
+    skos:altLabel "Mountain Cedar"@en ;
+    skos:note "Inventory uses both 'Ashe Juniper' (809) and 'Juniper, Ashe' (1,761)."@en .
+
+atree:EasternRedCedar
+    rdf:type owl:Class ;
+    skos:prefLabel "Eastern Red Cedar"@en ;
+    dwc:scientificName "Juniperus virginiana" ;
+    skos:altLabel "Eastern Red Cedar"@en ;
+    skos:altLabel "Cedar, Eastern Red"@en ;
+    skos:note "Distinct from Ashe Juniper despite similar common name usage."@en .
+
+atree:CommonHackberry
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Celtis ;
+    skos:prefLabel "Common Hackberry"@en ;
+    dwc:scientificName "Celtis occidentalis" ;
+    skos:altLabel "Common Hackberry"@en ;
+    skos:altLabel "Hackberry, Common"@en ;
+    skos:altLabel "Hackberry"@en .
+
+atree:Sugarberry
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Celtis ;
+    skos:prefLabel "Sugarberry"@en ;
+    dwc:scientificName "Celtis laevigata" ;
+    skos:altLabel "Sugarberry"@en ;
+    skos:altLabel "Southern Hackberry"@en ;
+    skos:note "Often confused with Common Hackberry. Inventory lists separately as 'Sugarberry' (1,152)."@en .
+
+atree:BaldCypress
+    rdf:type owl:Class ;
+    skos:prefLabel "Bald Cypress"@en ;
+    dwc:scientificName "Taxodium distichum" ;
+    skos:altLabel "Bald Cypress"@en ;
+    skos:altLabel "Cypress, Bald"@en .
+
+atree:Chinaberry
+    rdf:type owl:Class ;
+    skos:prefLabel "Chinaberry"@en ;
+    dwc:scientificName "Melia azedarach" ;
+    skos:altLabel "Chinaberrytree"@en ;
+    skos:altLabel "Chinaberry"@en ;
+    skos:altLabel "China Tree"@en .
+
+atree:TexasMountainLaurel
+    rdf:type owl:Class ;
+    skos:prefLabel "Texas Mountain Laurel"@en ;
+    dwc:scientificName "Sophora secundiflora" ;
+    skos:altLabel "Texas Mountain Laurel"@en ;
+    skos:altLabel "Bean, Mescal (Texas Mountain Laurel)"@en ;
+    skos:altLabel "Mescal Bean"@en ;
+    skos:altLabel "Texasplume"@en ;
+    skos:altLabel "mountain laural"@en ;
+    skos:altLabel "Mt. Laurel"@en .
+
+atree:AmericanSycamore
+    rdf:type owl:Class ;
+    skos:prefLabel "American Sycamore"@en ;
+    dwc:scientificName "Platanus occidentalis" ;
+    skos:altLabel "American Sycamore"@en ;
+    skos:altLabel "Sycamore, American"@en ;
+    skos:altLabel "Sycamore"@en ;
+    skos:altLabel "Plane Tree"@en .
+
+# Patch: Shumard Oak — add inventory variant
+atree:ShumardOak
+    skos:altLabel "Oak, Shumard"@en .
+
+# Patch: Taxodium distichum — add bare "Cypress" label
+atree:BaldCypress
+    skos:altLabel "Cypress"@en .
+
+# Patch: Quercus polymorpha — add "Monterey Oak" (Austin common usage)
+atree:MexicanWhiteOak
+    skos:altLabel "Monterey Oak"@en .
+
+# =============================================================================
+# EXPANDED SPECIES — High Priority (≥100 trees each in Austin inventory)
+# Added based on coverage analysis of 481 raw SPECIES strings
+# =============================================================================
+
+atree:JapanesePrivet
+    rdf:type owl:Class ;
+    skos:prefLabel "Japanese Privet"@en ;
+    dwc:scientificName "Ligustrum japonicum" ;
+    skos:altLabel "Japanese Privet"@en ;
+    skos:altLabel "Privet, Japanese"@en ;
+    skos:altLabel "Waxleaf Ligustrum"@en ;
+    skos:altLabel "Waxleaf ligustrum"@en ;
+    skos:altLabel "ligustrum"@en ;
+    skos:altLabel "Privet, Glossy"@en .
+
+atree:YauponHolly
+    rdf:type owl:Class ;
+    skos:prefLabel "Yaupon Holly"@en ;
+    dwc:scientificName "Ilex vomitoria" ;
+    skos:altLabel "Yaupon"@en ;
+    skos:altLabel "Yaupon Holly"@en ;
+    skos:altLabel "Yaupon, Holly"@en ;
+    skos:altLabel "Yaupon, Dwarf"@en .
+
+atree:TexasRedbud
+    rdf:type owl:Class ;
+    skos:prefLabel "Texas Redbud"@en ;
+    dwc:scientificName "Cercis canadensis var. texensis" ;
+    skos:altLabel "Texas Redbud"@en ;
+    skos:altLabel "Redbud, Texas"@en ;
+    skos:altLabel "Texas redbud"@en ;
+    skos:note "Inventory uses both 'Redbud, Texas' (443) and 'Texas Redbud' (193)."@en .
+
+atree:EasternRedbud
+    rdf:type owl:Class ;
+    skos:prefLabel "Eastern Redbud"@en ;
+    dwc:scientificName "Cercis canadensis" ;
+    skos:altLabel "Eastern Redbud"@en ;
+    skos:altLabel "Redbud, Eastern"@en ;
+    skos:altLabel "Redbud"@en ;
+    skos:altLabel "Eastern redbud"@en ;
+    skos:altLabel "redbud"@en ;
+    skos:altLabel "Redbud, Oklahoma"@en ;
+    skos:altLabel "Mexican Redbud"@en .
+
+atree:HoneyMesquite
+    rdf:type owl:Class ;
+    skos:prefLabel "Honey Mesquite"@en ;
+    dwc:scientificName "Prosopis glandulosa" ;
+    skos:altLabel "Honey Mesquite"@en ;
+    skos:altLabel "Mesquite, Honey"@en ;
+    skos:altLabel "Mesquite Species"@en ;
+    skos:altLabel "Mesquite"@en ;
+    skos:altLabel "Thornless Chilean Mesquite"@en .
+
+atree:TexasAsh
+    rdf:type owl:Class ;
+    skos:prefLabel "Texas Ash"@en ;
+    dwc:scientificName "Fraxinus texensis" ;
+    skos:altLabel "Texas Ash"@en ;
+    skos:altLabel "Ash, Texas"@en ;
+    skos:note "Inventory uses both 'Ash, Texas' (337) and 'Texas Ash' (283) for same species."@en .
+
+atree:ArizonaAsh
+    rdf:type owl:Class ;
+    skos:prefLabel "Arizona Ash"@en ;
+    dwc:scientificName "Fraxinus velutina" ;
+    skos:altLabel "Arizona Ash"@en ;
+    skos:altLabel "Ash, Velvet (Arizona Ash)"@en ;
+    skos:altLabel "Arizona ash"@en ;
+    skos:altLabel "Ash, Northern Mountain"@en .
+
+atree:MexicanSycamore
+    rdf:type owl:Class ;
+    skos:prefLabel "Mexican Sycamore"@en ;
+    dwc:scientificName "Platanus mexicana" ;
+    skos:altLabel "Mexican Sycamore"@en ;
+    skos:altLabel "Sycamore, Mexican"@en ;
+    skos:altLabel "Sycamore. Mexican"@en ;
+    skos:note "Inventory uses both 'Sycamore, Mexican' (249) and 'Mexican Sycamore' (122)."@en .
+
+atree:MexicanPlum
+    rdf:type owl:Class ;
+    skos:prefLabel "Mexican Plum"@en ;
+    dwc:scientificName "Prunus mexicana" ;
+    skos:altLabel "Mexican Plum"@en ;
+    skos:altLabel "Plum, Mexican"@en ;
+    skos:altLabel "American Plum"@en ;
+    skos:altLabel "Plum, Cherry"@en .
+
+atree:BradfordPear
+    rdf:type owl:Class ;
+    skos:prefLabel "Callery Pear"@en ;
+    dwc:scientificName "Pyrus calleryana" ;
+    skos:altLabel "Bradford Pear"@en ;
+    skos:altLabel "Callery Pear"@en ;
+    skos:altLabel "Pear, Callery"@en ;
+    skos:altLabel "Bradford pear"@en ;
+    skos:altLabel "Callery pear"@en .
+
+atree:ChineseElm
+    rdf:type owl:Class ;
+    skos:prefLabel "Chinese Elm"@en ;
+    dwc:scientificName "Ulmus parvifolia" ;
+    skos:altLabel "Chinese Elm"@en ;
+    skos:altLabel "Elm, Chinese (Lacebark Elm)"@en ;
+    skos:altLabel "Lacebark elm"@en ;
+    skos:altLabel "Elm, Lacebark"@en ;
+    skos:altLabel "Lacebark Elm"@en ;
+    skos:note "Inventory uses 'Chinese Elm' (225) and 'Elm, Chinese (Lacebark Elm)' (105)."@en .
+
+atree:EasternCottonwood
+    rdf:type owl:Class ;
+    skos:prefLabel "Eastern Cottonwood"@en ;
+    dwc:scientificName "Populus deltoides" ;
+    skos:altLabel "Eastern Cottonwood"@en ;
+    skos:altLabel "Cottonwood, Eastern"@en .
+
+atree:BoxElder
+    rdf:type owl:Class ;
+    skos:prefLabel "Box Elder"@en ;
+    dwc:scientificName "Acer negundo" ;
+    skos:altLabel "Box Elder"@en ;
+    skos:altLabel "Boxelder"@en ;
+    skos:altLabel "Box elder"@en .
+
+atree:MexicanBuckeye
+    rdf:type owl:Class ;
+    skos:prefLabel "Mexican Buckeye"@en ;
+    dwc:scientificName "Ungnadia speciosa" ;
+    skos:altLabel "Mexican Buckeye"@en ;
+    skos:altLabel "Buckeye, Mexican"@en .
+
+atree:ChineseTallow
+    rdf:type owl:Class ;
+    skos:prefLabel "Chinese Tallow"@en ;
+    dwc:scientificName "Triadica sebifera" ;
+    skos:altLabel "Chinese Tallow"@en ;
+    skos:altLabel "Tallow, Chinese"@en ;
+    skos:altLabel "Chinese Tallow Tree"@en ;
+    skos:note "Invasive species. Inventory uses both 'Tallow, Chinese' (185) and 'Chinese Tallow Tree' (142)."@en .
+
+atree:ChinesePistache
+    rdf:type owl:Class ;
+    skos:prefLabel "Chinese Pistache"@en ;
+    dwc:scientificName "Pistacia chinensis" ;
+    skos:altLabel "Chinese Pistache"@en ;
+    skos:altLabel "Chinese pistache"@en .
+
+atree:Arborvitae
+    rdf:type owl:Class ;
+    skos:prefLabel "Arborvitae"@en ;
+    dwc:scientificName "Thuja occidentalis" ;
+    skos:altLabel "Arborvitae"@en ;
+    skos:altLabel "Oriental Arborvitae"@en .
+
+atree:DesertWillow
+    rdf:type owl:Class ;
+    skos:prefLabel "Desert Willow"@en ;
+    dwc:scientificName "Chilopsis linearis" ;
+    skos:altLabel "Desert Willow"@en ;
+    skos:altLabel "Willow, Desert"@en ;
+    skos:altLabel "False Willow"@en .
+
+atree:Mulberry
+    rdf:type owl:Class ;
+    skos:prefLabel "Mulberry"@en ;
+    dwc:scientificName "Morus rubra" ;
+    skos:altLabel "Mulberry"@en ;
+    skos:altLabel "Mulberry, Texas"@en ;
+    skos:altLabel "Mulberry. Texas"@en ;
+    skos:altLabel "Paper mulberry"@en .
+
+atree:AmericanSmoketree
+    rdf:type owl:Class ;
+    skos:prefLabel "American Smoketree"@en ;
+    dwc:scientificName "Cotinus obovatus" ;
+    skos:altLabel "American Smoketree"@en ;
+    skos:altLabel "Smoketree, American"@en .
+
+atree:LaceyOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Lacey Oak"@en ;
+    dwc:scientificName "Quercus laceyi" ;
+    skos:altLabel "Lacey Oak"@en ;
+    skos:altLabel "Oak, Lacey"@en .
+
+atree:GumBumelia
+    rdf:type owl:Class ;
+    skos:prefLabel "Gum Bumelia"@en ;
+    dwc:scientificName "Sideroxylon lanuginosum" ;
+    skos:altLabel "Gum Bumelia"@en ;
+    skos:altLabel "Bully, Gum"@en ;
+    skos:altLabel "Gum bumelia"@en .
+
+atree:PossumhawHolly
+    rdf:type owl:Class ;
+    skos:prefLabel "Possumhaw Holly"@en ;
+    dwc:scientificName "Ilex decidua" ;
+    skos:altLabel "Possumhaw Holly"@en ;
+    skos:altLabel "Possumhaw"@en .
+
+atree:BlackWalnut
+    rdf:type owl:Class ;
+    skos:prefLabel "Black Walnut"@en ;
+    dwc:scientificName "Juglans nigra" ;
+    skos:altLabel "Black Walnut"@en ;
+    skos:altLabel "Walnut, Black"@en ;
+    skos:altLabel "Black walnut"@en ;
+    skos:altLabel "walnut, black"@en ;
+    skos:altLabel "Walnut"@en .
+
+atree:TexasPersimmon
+    rdf:type owl:Class ;
+    skos:prefLabel "Texas Persimmon"@en ;
+    dwc:scientificName "Diospyros texana" ;
+    skos:altLabel "Texas Persimmon"@en ;
+    skos:altLabel "Persimmon, Texas"@en ;
+    skos:altLabel "texas persimmon"@en ;
+    skos:altLabel "Common Persimmon"@en ;
+    skos:altLabel "American Persimmon"@en .
+
+atree:EvergreenSumac
+    rdf:type owl:Class ;
+    skos:prefLabel "Evergreen Sumac"@en ;
+    dwc:scientificName "Rhus virens" ;
+    skos:altLabel "Evergreen Sumac"@en ;
+    skos:altLabel "Sumac, Evergreen"@en ;
+    skos:altLabel "Flame-Leaf Sumac"@en .
+
+atree:EvesNecklacepod
+    rdf:type owl:Class ;
+    skos:prefLabel "Eve's Necklacepod"@en ;
+    dwc:scientificName "Sophora affinis" ;
+    skos:altLabel "Eve's Necklacepod"@en ;
+    skos:altLabel "Necklacepod, Eves"@en .
+
+atree:SilkTree
+    rdf:type owl:Class ;
+    skos:prefLabel "Silk Tree"@en ;
+    dwc:scientificName "Albizia julibrissin" ;
+    skos:altLabel "Silk Tree"@en ;
+    skos:altLabel "Mimosa"@en .
+
+atree:Ginkgo
+    rdf:type owl:Class ;
+    skos:prefLabel "Ginkgo"@en ;
+    dwc:scientificName "Ginkgo biloba" ;
+    skos:altLabel "Ginkgo"@en ;
+    skos:altLabel "Maidenhair Tree"@en .
+
+atree:HoneyLocust
+    rdf:type owl:Class ;
+    skos:prefLabel "Honey Locust"@en ;
+    dwc:scientificName "Gleditsia triacanthos" ;
+    skos:altLabel "Honey Locust"@en ;
+    skos:altLabel "Honeylocust"@en ;
+    skos:altLabel "Honey locust"@en .
+
+atree:BlackLocust
+    rdf:type owl:Class ;
+    skos:prefLabel "Black Locust"@en ;
+    dwc:scientificName "Robinia pseudoacacia" ;
+    skos:altLabel "Black Locust"@en ;
+    skos:altLabel "Black locust"@en .
+
+atree:EasternBlackCherry
+    rdf:type owl:Class ;
+    skos:prefLabel "Eastern Black Cherry"@en ;
+    dwc:scientificName "Prunus serotina" ;
+    skos:altLabel "Eastern Black Cherry"@en ;
+    skos:altLabel "Eastern black cherry"@en ;
+    skos:altLabel "Escarpment Black Cherry"@en ;
+    skos:altLabel "Escarpment black cherry"@en ;
+    skos:altLabel "Cherry Laurel"@en .
+
+atree:OsageOrange
+    rdf:type owl:Class ;
+    skos:prefLabel "Osage Orange"@en ;
+    dwc:scientificName "Maclura pomifera" ;
+    skos:altLabel "Osage Orange"@en ;
+    skos:altLabel "Osage, Orange"@en ;
+    skos:altLabel "Osage orange"@en ;
+    skos:altLabel "Orange, Osage"@en ;
+    skos:altLabel "Bois d'arc"@en .
+
+# =============================================================================
+# PATCH: altLabels on existing classes for still-unmapped variant strings
+# =============================================================================
+
+# Cottonwood bare label → EasternCottonwood
+atree:EasternCottonwood
+    skos:altLabel "Cottonwood"@en .
+
+# Pistache, Chinese → ChinesePistache (already exists)
+atree:ChinesePistache
+    skos:altLabel "Pistache, Chinese"@en ;
+    skos:altLabel "Pistachio"@en ;
+    skos:altLabel "Pistache, Texas"@en .
+
+# Persimmon, Common → TexasPersimmon
+atree:TexasPersimmon
+    skos:altLabel "Persimmon, Common"@en ;
+    skos:altLabel "Persimmon, Japanese"@en ;
+    skos:altLabel "Japanese Persimmon"@en .
+
+# Silktree / Mimosa, Silk Tree → SilkTree
+atree:SilkTree
+    skos:altLabel "Silktree"@en ;
+    skos:altLabel "Mimosa, Silk Tree"@en .
+
+# Baldcypress → BaldCypress
+atree:BaldCypress
+    skos:altLabel "Baldcypress"@en ;
+    skos:altLabel "Cypress, Montezuma Bald"@en ;
+    skos:altLabel "Montezuma Cypress"@en ;
+    skos:altLabel "Cypress, Monterey"@en ;
+    skos:altLabel "Monterey Cypress"@en ;
+    skos:altLabel "Cypress, Italian"@en ;
+    skos:altLabel "Italian Cypress"@en ;
+    skos:altLabel "Cypress, Arizona"@en ;
+    skos:altLabel "Arizona Cypress"@en ;
+    skos:altLabel "Cypress, Bald.r"@en ;
+    skos:altLabel "Cypress, Leyland"@en .
+
+# Black Locust variants → BlackLocust
+atree:BlackLocust
+    skos:altLabel "Locust, Black"@en .
+
+# Mulberry variants → Mulberry
+atree:Mulberry
+    skos:altLabel "Mulberry spp."@en ;
+    skos:altLabel "Red Mulberry"@en ;
+    skos:altLabel "Mulberry, Red"@en ;
+    skos:altLabel "Mulberry, White"@en ;
+    skos:altLabel "White Mulberry"@en .
+
+# Eastern Redbud variants
+atree:EasternRedbud
+    skos:altLabel "Redbud species"@en ;
+    skos:altLabel "Redbud, Mexican"@en ;
+    skos:altLabel "Mountain Laurel"@en .
+
+# Sycamore spp. → AmericanSycamore
+atree:AmericanSycamore
+    skos:altLabel "Sycamore spp."@en .
+
+# Oak, American Live → SouthernLiveOak
+atree:SouthernLiveOak
+    skos:altLabel "Oak, American Live"@en ;
+    skos:altLabel "Oak, Live"@en ;
+    skos:altLabel "Love oak"@en .
+
+# Shumard Oak variant
+atree:ShumardOak
+    skos:altLabel "Southern Red Oak"@en .
+
+# Ulmus crassifolia (scientific name as string in data)
+atree:CedarElm
+    skos:altLabel "Ulmus crassifolia"@en .
+
+# Quercus stellata (scientific name as string)
+atree:PostOak
+    skos:altLabel "Quercus stellata"@en ;
+    skos:altLabel "Oak, Bastard"@en .
+
+# Quercus buckley / Quercus marilandica
+atree:TexasRedOak
+    skos:altLabel "Quercus buckley"@en ;
+    skos:altLabel "Buckley Oak"@en ;
+    skos:altLabel "Chisos Red Oak"@en ;
+    skos:altLabel "Oak, Chisos"@en ;
+    skos:altLabel "Oak, Chisos Red"@en ;
+    skos:altLabel "Chisos red oak"@en ;
+    skos:altLabel "Chisos , Red oak"@en ;
+    skos:altLabel "Chiso's red oak"@en ;
+    skos:altLabel "Oak, Red"@en .
+
+# Quercus marilandica → BlackjackOak (added below)
+# Burr oak → BurOak
+atree:BurOak
+    skos:altLabel "Burr oak"@en ;
+    skos:altLabel "Oak, Burr"@en ;
+    skos:altLabel "Oak, Burr"@en .
+
+# Mexican White Oak typo
+atree:MexicanWhiteOak
+    skos:altLabel "Mexican Whie Oak"@en ;
+    skos:altLabel "Oak, Monterey White"@en ;
+    skos:altLabel "Monterrey Oak"@en ;
+    skos:altLabel "Oak, Mexican White"@en ;
+    skos:altLabel "White Oak"@en .
+
+# EasternBlackCherry additional variants
+atree:EasternBlackCherry
+    skos:altLabel "Cherry, Black"@en ;
+    skos:altLabel "Carolina Laurel Cherry"@en ;
+    skos:altLabel "Laurelcherry, Carolina"@en .
+
+# Sweetgum variants → AmericanSweetgum (added below)
+# Eve's Necklace / Necklacepod → EvesNecklacepod
+atree:EvesNecklacepod
+    skos:altLabel "Eve's Necklace"@en .
+
+# Anaqua / Anacua → Knockaway (same species)
+# Green Ash variants → GreenAsh (added below)
+# Possumhaw variants
+atree:PossumhawHolly
+    skos:altLabel "Possum Haw"@en .
+
+# Texas Mountain Laurel variants
+atree:TexasMountainLaurel
+    skos:altLabel "Mountain Laurel"@en .
+
+# Ash generic → add to ArizonaAsh catch-all (or genus)
+atree:Ulmus
+    skos:altLabel "Elm Species"@en ;
+    skos:altLabel "Elm spp."@en .
+
+atree:Quercus
+    skos:altLabel "Oak, Northern Red"@en ;
+    skos:altLabel "Oak, Water"@en ;
+    skos:altLabel "Oak, Emory"@en ;
+    skos:altLabel "Durand Oak"@en ;
+    skos:altLabel "Canby Oak"@en ;
+    skos:altLabel "Shin oak"@en ;
+    skos:altLabel "Oak, White Shin"@en ;
+    skos:altLabel "Oak, Nuttall"@en ;
+    skos:altLabel "Oak, Overcup"@en ;
+    skos:altLabel "Oak, Scarlet Oak"@en ;
+    skos:altLabel "Blackjack Oak"@en ;
+    skos:altLabel "Blackjack oak"@en ;
+    skos:altLabel "Oak, Blackjack"@en ;
+    skos:altLabel "Oak, Sawtooth"@en ;
+    skos:altLabel "Sawtooth Oak"@en ;
+    skos:altLabel "Acorn Species"@en ;
+    skos:altLabel "Cork Oak"@en ;
+    skos:altLabel "Oak, Mexican"@en ;
+    skos:altLabel "Oak, White"@en ;
+    skos:altLabel "Oak, Willow"@en ;
+    skos:altLabel "Southern Red Oak"@en .
+
+# =============================================================================
+# NEW SPECIES — Remaining Mappable Set (≥2 trees, real species)
+# =============================================================================
+
+atree:BlackWillow
+    rdf:type owl:Class ;
+    skos:prefLabel "Black Willow"@en ;
+    dwc:scientificName "Salix nigra" ;
+    skos:altLabel "Black Willow"@en ;
+    skos:altLabel "Willow, Black"@en ;
+    skos:altLabel "Black willow"@en ;
+    skos:altLabel "Willow, Weeping"@en ;
+    skos:altLabel "Willow Species"@en ;
+    skos:altLabel "Willow spp."@en .
+
+atree:TreeOfHeaven
+    rdf:type owl:Class ;
+    skos:prefLabel "Tree of Heaven"@en ;
+    dwc:scientificName "Ailanthus altissima" ;
+    skos:altLabel "Tree of Heaven"@en ;
+    skos:altLabel "Tree of heaven"@en ;
+    skos:altLabel "Ailanthus"@en .
+
+atree:Pinus
+    rdf:type owl:Class ;
+    skos:prefLabel "Pine"@en ;
+    dwc:scientificName "Pinus" ;
+    skos:altLabel "Pine Species"@en ;
+    skos:altLabel "Pine"@en ;
+    skos:altLabel "Pine spp."@en ;
+    skos:altLabel "Pine, Loblolly"@en ;
+    skos:altLabel "Pine, Italian Stone"@en ;
+    skos:altLabel "Italian Stone Pine"@en ;
+    skos:altLabel "Italian stone pine"@en ;
+    skos:altLabel "Pine, Afghan"@en ;
+    skos:altLabel "Afghan Pine"@en ;
+    skos:altLabel "Pine, Jeffery"@en ;
+    skos:altLabel "Pine, Japanese Black"@en ;
+    skos:altLabel "Pine, Austrian"@en .
+
+atree:Knockaway
+    rdf:type owl:Class ;
+    skos:prefLabel "Knockaway"@en ;
+    dwc:scientificName "Ehretia anacua" ;
+    skos:altLabel "Knockaway"@en ;
+    skos:altLabel "Anacua"@en ;
+    skos:altLabel "Anaqua"@en .
+
+atree:RougheafDogwood
+    rdf:type owl:Class ;
+    skos:prefLabel "Roughleaf Dogwood"@en ;
+    dwc:scientificName "Cornus drummondii" ;
+    skos:altLabel "Roughleaf Dogwood"@en ;
+    skos:altLabel "Dogwood, Roughleaf"@en ;
+    skos:altLabel "Dogwood Species"@en .
+
+atree:PrairieSumac
+    rdf:type owl:Class ;
+    skos:prefLabel "Prairie Sumac"@en ;
+    dwc:scientificName "Rhus lanceolata" ;
+    skos:altLabel "Prairie Sumac"@en ;
+    skos:altLabel "Sumac, Prairie"@en ;
+    skos:altLabel "Sumac, Smooth"@en ;
+    skos:altLabel "Smooth Sumac"@en ;
+    skos:altLabel "Texas Sumac"@en ;
+    skos:altLabel "Sumac"@en ;
+    skos:altLabel "Flame-Leaf Sumac"@en .
+
+atree:Peach
+    rdf:type owl:Class ;
+    skos:prefLabel "Peach"@en ;
+    dwc:scientificName "Prunus persica" ;
+    skos:altLabel "Peach"@en .
+
+atree:LittleleafLeadtree
+    rdf:type owl:Class ;
+    skos:prefLabel "Littleleaf Leadtree"@en ;
+    dwc:scientificName "Leucaena retusa" ;
+    skos:altLabel "Littleleaf Leadtree"@en ;
+    skos:altLabel "Leadtree, Littleleaf"@en ;
+    skos:altLabel "Goldenball Leadtree"@en ;
+    skos:altLabel "Goldenball leadtree"@en ;
+    skos:altLabel "Goldenball leadtree"@en ;
+    skos:altLabel "Leadball Tree"@en ;
+    skos:altLabel "Golden leadball"@en .
+
+atree:TexasMadrone
+    rdf:type owl:Class ;
+    skos:prefLabel "Texas Madrone"@en ;
+    dwc:scientificName "Arbutus xalapensis" ;
+    skos:altLabel "Texas Madrone"@en ;
+    skos:altLabel "Madrone, Texas"@en .
+
+atree:ChinesePrivet
+    rdf:type owl:Class ;
+    skos:prefLabel "Chinese Privet"@en ;
+    dwc:scientificName "Ligustrum sinense" ;
+    skos:altLabel "Chinese Privet"@en ;
+    skos:altLabel "Privet"@en ;
+    skos:altLabel "Privet Species"@en ;
+    skos:altLabel "Glossy Privet"@en .
+
+atree:SweetAcacia
+    rdf:type owl:Class ;
+    skos:prefLabel "Sweet Acacia"@en ;
+    dwc:scientificName "Vachellia farnesiana" ;
+    skos:altLabel "Sweet Acacia"@en ;
+    skos:altLabel "Acacia, Sweet"@en ;
+    skos:altLabel "Huisache"@en ;
+    skos:altLabel "Acacia Species"@en ;
+    skos:altLabel "Acacia, Shoestring"@en ;
+    skos:altLabel "Shoestring Acacia"@en ;
+    skos:altLabel "Small's Acacia"@en .
+
+atree:RustyBlackhaw
+    rdf:type owl:Class ;
+    skos:prefLabel "Rusty Blackhaw"@en ;
+    dwc:scientificName "Viburnum rufidulum" ;
+    skos:altLabel "Rusty Blackhaw"@en ;
+    skos:altLabel "Blackhaw, Rusty"@en .
+
+atree:WaxMyrtle
+    rdf:type owl:Class ;
+    skos:prefLabel "Wax Myrtle"@en ;
+    dwc:scientificName "Morella cerifera" ;
+    skos:altLabel "Wax Myrtle"@en ;
+    skos:altLabel "Myrtle, Wax"@en ;
+    skos:altLabel "Eastern Wax Myrtle"@en .
+
+atree:BigtoothMaple
+    rdf:type owl:Class ;
+    skos:prefLabel "Bigtooth Maple"@en ;
+    dwc:scientificName "Acer grandidentatum" ;
+    skos:altLabel "Bigtooth Maple"@en ;
+    skos:altLabel "Maple, Bigtooth"@en ;
+    skos:altLabel "Bigtooth maple"@en ;
+    skos:altLabel "Shantung maple"@en ;
+    skos:altLabel "Trident maple"@en ;
+    skos:altLabel "Maple, Sugar"@en ;
+    skos:altLabel "Maple, Silver"@en ;
+    skos:altLabel "Maple, Red"@en ;
+    skos:altLabel "Red Maple"@en ;
+    skos:altLabel "Maple"@en .
+
+atree:JerusalemThorn
+    rdf:type owl:Class ;
+    skos:prefLabel "Jerusalem Thorn"@en ;
+    dwc:scientificName "Parkinsonia aculeata" ;
+    skos:altLabel "Jerusalem Thorn"@en ;
+    skos:altLabel "Thorn, Jerusalem"@en ;
+    skos:altLabel "Retama"@en ;
+    skos:altLabel "Paloverde, Texas"@en ;
+    skos:altLabel "Palo Verde"@en .
+
+atree:AfghanPine
+    rdf:type owl:Class ;
+    skos:prefLabel "Afghan Pine"@en ;
+    dwc:scientificName "Pinus eldarica" ;
+    skos:altLabel "Afghan Pine"@en ;
+    skos:altLabel "Pine, Afghan"@en .
+
+atree:NorthernRedOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Northern Red Oak"@en ;
+    dwc:scientificName "Quercus rubra" ;
+    skos:altLabel "Northern Red Oak"@en ;
+    skos:altLabel "Oak, Northern Red"@en .
+
+atree:WillowOak
+    rdf:type owl:Class ;
+    rdfs:subClassOf atree:Quercus ;
+    skos:prefLabel "Willow Oak"@en ;
+    dwc:scientificName "Quercus phellos" ;
+    skos:altLabel "Willow Oak"@en ;
+    skos:altLabel "Oak, Willow"@en .
+
+atree:CarolinaBuckthorn
+    rdf:type owl:Class ;
+    skos:prefLabel "Carolina Buckthorn"@en ;
+    dwc:scientificName "Frangula caroliniana" ;
+    skos:altLabel "Carolina Buckthorn"@en ;
+    skos:altLabel "Buckthorn, Carolina"@en ;
+    skos:altLabel "Carolina Buckthorn"@en .
+
+atree:ChasteTree
+    rdf:type owl:Class ;
+    skos:prefLabel "Chaste Tree"@en ;
+    dwc:scientificName "Vitex agnus-castus" ;
+    skos:altLabel "Chaste Tree"@en ;
+    skos:altLabel "Chasetree, Lilac"@en ;
+    skos:altLabel "Vitex"@en .
+
+atree:Pomegranate
+    rdf:type owl:Class ;
+    skos:prefLabel "Pomegranate"@en ;
+    dwc:scientificName "Punica granatum" ;
+    skos:altLabel "Pomegranate"@en .
+
+atree:OrnamentalPear
+    rdf:type owl:Class ;
+    skos:prefLabel "Ornamental Pear"@en ;
+    dwc:scientificName "Pyrus calleryana" ;
+    skos:altLabel "Ornamental Pear"@en ;
+    skos:altLabel "Edible Pear"@en .
+
+atree:AmericanSweetgum
+    rdf:type owl:Class ;
+    skos:prefLabel "American Sweetgum"@en ;
+    dwc:scientificName "Liquidambar styraciflua" ;
+    skos:altLabel "American Sweetgum"@en ;
+    skos:altLabel "American Sweet Gum"@en ;
+    skos:altLabel "Sweetgum"@en ;
+    skos:altLabel "Sweet Gum"@en .
+
+atree:KidneywoodTexas
+    rdf:type owl:Class ;
+    skos:prefLabel "Texas Kidneywood"@en ;
+    dwc:scientificName "Eysenhardtia texana" ;
+    skos:altLabel "Texas Kidneywood"@en ;
+    skos:altLabel "Kidneywood, Texas"@en ;
+    skos:altLabel "Kidneywood"@en .
+
+atree:GreenAsh
+    rdf:type owl:Class ;
+    skos:prefLabel "Green Ash"@en ;
+    dwc:scientificName "Fraxinus pennsylvanica" ;
+    skos:altLabel "Green Ash"@en ;
+    skos:altLabel "Ash, Green"@en ;
+    skos:altLabel "Green ash"@en ;
+    skos:altLabel "Mexican Ash"@en ;
+    skos:altLabel "Ash spp."@en ;
+    skos:altLabel "Ash"@en ;
+    skos:altLabel "Ash, White"@en .
+
+atree:ChineseParasol
+    rdf:type owl:Class ;
+    skos:prefLabel "Chinese Parasol Tree"@en ;
+    dwc:scientificName "Firmiana simplex" ;
+    skos:altLabel "Chinese Parasol Tree"@en ;
+    skos:altLabel "Parasol, Chinese"@en ;
+    skos:altLabel "Chinese Parasol Tree"@en .
+
+atree:SouthernMagnolia
+    rdf:type owl:Class ;
+    skos:prefLabel "Southern Magnolia"@en ;
+    dwc:scientificName "Magnolia grandiflora" ;
+    skos:altLabel "Southern Magnolia"@en ;
+    skos:altLabel "Magnolia, Southern"@en ;
+    skos:altLabel "Magnolia Species"@en ;
+    skos:altLabel "Magnolia"@en ;
+    skos:altLabel "Magnolia, Saucer"@en .
+
+atree:WesternSoapberry
+    rdf:type owl:Class ;
+    skos:prefLabel "Western Soapberry"@en ;
+    dwc:scientificName "Sapindus saponaria" ;
+    skos:altLabel "Western Soapberry"@en ;
+    skos:altLabel "Soapberry, Western"@en ;
+    skos:altLabel "Soapberry, Wingleaf"@en ;
+    skos:altLabel "Western soapberry"@en ;
+    skos:altLabel "Soapberry"@en .
+
+atree:AnacachoOrchidTree
+    rdf:type owl:Class ;
+    skos:prefLabel "Anacacho Orchid Tree"@en ;
+    dwc:scientificName "Bauhinia lunarioides" ;
+    skos:altLabel "Anacacho Orchid Tree"@en ;
+    skos:altLabel "Anacacho orchid"@en ;
+    skos:altLabel "Anacacho Orchid Tree"@en .
+
+atree:NorthernCatalpa
+    rdf:type owl:Class ;
+    skos:prefLabel "Catalpa"@en ;
+    dwc:scientificName "Catalpa speciosa" ;
+    skos:altLabel "Catalpa"@en ;
+    skos:altLabel "Catalpa, Northern"@en ;
+    skos:altLabel "Catalpa, Southern"@en ;
+    skos:altLabel "Eastern Catalpa"@en ;
+    skos:altLabel "Western Catalpa"@en ;
+    skos:altLabel "Chitalpa"@en .
+
+atree:ChineseFlamTree
+    rdf:type owl:Class ;
+    skos:prefLabel "Chinese Flame Tree"@en ;
+    dwc:scientificName "Koelreuteria bipinnata" ;
+    skos:altLabel "Chinese Flame Tree"@en ;
+    skos:altLabel "Flamegold"@en ;
+    skos:altLabel "Formosa Flamegold"@en ;
+    skos:altLabel "Goldenrain Tree"@en .
+
+atree:LittlewalnutJuglans
+    rdf:type owl:Class ;
+    skos:prefLabel "Little Walnut"@en ;
+    dwc:scientificName "Juglans microcarpa" ;
+    skos:altLabel "Little Walnut"@en ;
+    skos:altLabel "Walnut, Little"@en ;
+    skos:altLabel "Walnut Species"@en .
+
+atree:MexicanBuckeye2
+    rdf:type owl:Class ;
+    skos:prefLabel "Ohio Buckeye"@en ;
+    dwc:scientificName "Aesculus glabra" ;
+    skos:altLabel "Ohio Buckeye"@en ;
+    skos:altLabel "Buckeye, Ohio"@en .
+
+atree:HollySpecies
+    rdf:type owl:Class ;
+    skos:prefLabel "Holly"@en ;
+    dwc:scientificName "Ilex" ;
+    skos:altLabel "Holly Species"@en ;
+    skos:altLabel "Holly, Chinese"@en ;
+    skos:altLabel "Chinese Holly"@en ;
+    skos:altLabel "Holly, American"@en ;
+    skos:altLabel "Yaupon, Holly"@en .
+
+atree:Chitalpa
+    rdf:type owl:Class ;
+    skos:prefLabel "Chitalpa"@en ;
+    dwc:scientificName "Chitalpa tashkentensis" ;
+    skos:altLabel "Chitalpa"@en .
+
+atree:PalmSpecies
+    rdf:type owl:Class ;
+    skos:prefLabel "Palm"@en ;
+    dwc:scientificName "Arecaceae" ;
+    skos:altLabel "Palm"@en ;
+    skos:altLabel "Palm Species"@en ;
+    skos:altLabel "Palm spp."@en ;
+    skos:altLabel "Mexican Fan Palm"@en ;
+    skos:altLabel "Mexican Sabal Palm"@en ;
+    skos:altLabel "Windmill Palm"@en ;
+    skos:altLabel "Pindo Palm"@en ;
+    skos:altLabel "Palmetto"@en ;
+    skos:altLabel "Palmetto, Rio Grande"@en ;
+    skos:altLabel "California Fan Palm"@en ;
+    skos:altLabel "Palm, California Fan"@en ;
+    skos:altLabel "Canary Island Date Palm"@en ;
+    skos:altLabel "Guadalupe Palm"@en ;
+    skos:altLabel "Mediterranean Fan Palm"@en ;
+    skos:altLabel "Big Bend Yucca"@en .
+
+atree:FicusSpecies
+    rdf:type owl:Class ;
+    skos:prefLabel "Fig"@en ;
+    dwc:scientificName "Ficus" ;
+    skos:altLabel "Ficus Species"@en ;
+    skos:altLabel "Fig, Edible"@en ;
+    skos:altLabel "Edible Fig"@en ;
+    skos:altLabel "Loquat"@en ;
+    skos:altLabel "Edible Loquat"@en ;
+    skos:altLabel "Loquat, Common"@en ;
+    skos:altLabel "Loquat, Bronze"@en ;
+    skos:altLabel "Bronze Loquat"@en .
+
+atree:ChineseFringeTree
+    rdf:type owl:Class ;
+    skos:prefLabel "Chinese Fringe Tree"@en ;
+    dwc:scientificName "Chionanthus retusus" ;
+    skos:altLabel "Chinese Fringe Tree"@en .
+
+atree:AmericanHornbeam
+    rdf:type owl:Class ;
+    skos:prefLabel "American Hornbeam"@en ;
+    dwc:scientificName "Carpinus caroliniana" ;
+    skos:altLabel "American Hornbeam"@en .
+
+atree:SiberianElm
+    rdf:type owl:Class ;
+    skos:prefLabel "Siberian Elm"@en ;
+    dwc:scientificName "Ulmus pumila" ;
+    skos:altLabel "Siberian Elm"@en ;
+    skos:altLabel "Elm, Siberian"@en .
+
+atree:AmericanBasswood
+    rdf:type owl:Class ;
+    skos:prefLabel "American Basswood"@en ;
+    dwc:scientificName "Tilia americana" ;
+    skos:altLabel "American Basswood"@en ;
+    skos:altLabel "Basswood, American"@en ;
+    skos:altLabel "Linden Species"@en .
+
+atree:GinkgoExtra
+    rdf:type owl:Class ;
+    skos:prefLabel "Yew Pine"@en ;
+    dwc:scientificName "Podocarpus macrophyllus" ;
+    skos:altLabel "Yew Pine"@en ;
+    skos:altLabel "Yew, Japanese"@en .
+
+atree:Oleander
+    rdf:type owl:Class ;
+    skos:prefLabel "Oleander"@en ;
+    dwc:scientificName "Nerium oleander" ;
+    skos:altLabel "Oleander"@en .
+
+atree:RoseOfSharon
+    rdf:type owl:Class ;
+    skos:prefLabel "Rose of Sharon"@en ;
+    dwc:scientificName "Hibiscus syriacus" ;
+    skos:altLabel "Rose of Sharon"@en ;
+    skos:altLabel "Rose-of-Sharon"@en .
+
+atree:TexasOlive
+    rdf:type owl:Class ;
+    skos:prefLabel "Texas Olive"@en ;
+    dwc:scientificName "Cordia boissieri" ;
+    skos:altLabel "Texas Olive"@en .
+
+atree:PurpleLeafPlum
+    rdf:type owl:Class ;
+    skos:prefLabel "Purple-Leaf Plum"@en ;
+    dwc:scientificName "Prunus cerasifera" ;
+    skos:altLabel "Purple-Leaf Plum"@en ;
+    skos:altLabel "Purple-Leafed Plum"@en ;
+    skos:altLabel "Stone Fruit species"@en ;
+    skos:altLabel "Plum"@en .
+
+atree:Jujube
+    rdf:type owl:Class ;
+    skos:prefLabel "Jujube"@en ;
+    dwc:scientificName "Ziziphus jujuba" ;
+    skos:altLabel "Jujube"@en ;
+    skos:altLabel "Jujube, Common"@en .
+
+atree:TexasLiveOakAlt
+    rdf:type owl:Class ;
+    skos:prefLabel "Elm, Texas"@en ;
+    dwc:scientificName "Ulmus crassifolia" ;
+    skos:altLabel "Elm, Texas"@en ;
+    skos:altLabel "Elm, Winged"@en ;
+    skos:altLabel "Elm, Slippery"@en ;
+    skos:altLabel "Elm, Frontier"@en .
+
+atree:Photinia
+    rdf:type owl:Class ;
+    skos:prefLabel "Photinia"@en ;
+    dwc:scientificName "Photinia" ;
+    skos:altLabel "Photinia"@en ;
+    skos:altLabel "Photinia, Frasier"@en ;
+    skos:altLabel "Fraser Photinia"@en ;
+    skos:altLabel "Chinese Photinia"@en ;
+    skos:altLabel "Red tip photenia"@en ;
+    skos:altLabel "Photinia, Taiwanese"@en ;
+    skos:altLabel "Red tip proteins"@en .
+

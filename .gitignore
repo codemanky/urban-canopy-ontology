@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Data
+# Ignore large dataset files
+data/Austin_311_Public_Data_*.csv
+data/Tree_Inventory_*.csv
+data/trees_raw.csv
+data/maintenance_raw.csv
+
+# Allow synthetic sample data if present
+!data/trees_sample.csv
+!data/maintenance_sample.csv
+
+# Output results
+results/evaluation_results*.csv
+
+# OS
+.DS_Store
+Thumbs.db
